@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
+*{
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.SideNavbar{
+  /*width: 100%;*/
+  height: 100vh;
+  border: 1px solid black;
+}
+.SideNavbar a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.SideNavbar a:hover{
+  text-decoration: line-through;
+}
+.showNav{
+  width: 1vw;
+  height: 100vh;
+  line-height: 100vh;
+  border: 1px solid black;
+}
+.login-header{
+  text-align: center;
+}
+.error-message {
+  padding: 0 16px;
+  color: tomato;
+}
+
+.success-message {
+  padding: 0 16px;
+  color: green;
+}
+.button-center{
+  text-align: center;
+}
+.root-page{
+  height: 100vh;
+  width: 100vw;
+  position:relative;
+  background-size: cover;
+}
+.welcome-msg:after{
+ content: '';
+ /*background: url("http://www.photos-public-domain.com/wp-content/uploads/2011/02/teal-blue-painted-brick-wall-texture.jpg");*/
+ /*background: url("https://s-media-cache-ak0.pinimg.com/564x/e6/81/4f/e6814fc433e7a463e8553881edeca712.jpg") no-repeat center;*/
+ /*background: url("http://cdn.bracioroom.com/2017/03/01/family-tree-wall-decal-l-36e4cbcc030fe526.jpg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/212939/pexels-photo-212939.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/176059/pexels-photo-176059.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/220694/pexels-photo-220694.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/217316/pexels-photo-217316.jpeg") no-repeat center;*/
+ background: url("https://static.pexels.com/photos/57851/pexels-photo-57851.jpeg") no-repeat center;
+ /*background: url("https://static.pexels.com/photos/296649/pexels-photo-296649.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/46252/family-kids-happy-people-46252.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/29585/pexels-photo-29585.jpg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/195364/pexels-photo-195364.jpeg") no-repeat center;*/
+ /*background: url("https://static.pexels.com/photos/119681/pexels-photo-119681.jpeg") no-repeat center;*/
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ /*background-color: #90cfd4;*/
+ /*background-color: #b6c4db;*/
+ /*background-color: #80d9ff;*/
+ height: 100vh;
+ width: 100vw;
+ position: absolute;
+ top: 0;
+ left: 0;
+ /*filter: opacity(0.3);*/
+ /*filter: blur(2px);*/
+ /*filter: grayscale(1);*/
+ /*filter: sepia(1);*/
+ /*filter: contrast(2);*/
+ /*filter: invert();*/
+ /*filter: hue-rotate(80deg);*/
+ /*filter: saturate(5);*/
+
+}
+.welcome-msg{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:1;
+  /*color: white;*/
+  transition: all 1s ease;
+
+}
+.greeting{
+  padding-right: 2em;
+  margin-right: 2em;
+}
+/*.frame-out{
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+  margin: 2em;
+  display: flex;
+  align-items: center;
+}*/
+.frame{
+  width: 10em;
+  height: 10em;
+  margin-bottom: 2em;
+  margin-left: 5em;
+  border: 2px solid black;
+  align-self: center;
+  position: relative;
+  transition: all 1s ease;
+  z-index: 2;
+}
+.frame img{
+  width: 100%;
+  height: 100%;
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+  -moz-box-shadow: 3px 3px 3px #777;
+  box-shadow: 3px 3px 3px #777;
+  filter: grayscale(1);
+  z-index: 3;
+  transition: all 1s ease;
+}
+.frame p{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 4;
+  bottom: 0px;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: #888;
+}
+
+.frame p:hover{
+  color: #000;
+}
+.frame:hover {
+  /*filter: blur(0px);*/
+  transform:scale(1.25);
+}
+.frame img:hover{
+  filter: hue-rotate(90deg);
+}
+.logo{
+  position:relative;
+  z-index:10;
+  margin-top: 4em;
+  margin-bottom: -10px;
+}
+/*.frame:hover ~ .welcome-msg,
+.frame:focus ~ .welcome-msg {
+  filter: blur(5px);
+}*/
+.frame:has(img) { background: none; }
+
+.col-md-6 form{
+  position: absolute;
+  z-index: 50;
+  margin: 8em;
+}
