@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import SignInForm from '../User/SignIn/SignInForm.js';
 import $ from 'jquery';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import appState from '../../GlobalData.js'
 import linkState from '../../Links.js'
 
@@ -68,9 +68,11 @@ class HomePage extends Component {
                           name: userData.name,
                           email: userData.email,
                           contact: userData.contact,
-                          address: userData.address
+                          address: userData.address,
+                          lat: userData.latitude,
+                          long: userData.longitude
                         };
-        browserHistory.push('/home');
+        hashHistory.push('/');
       },
       error: (response) => {
         this.setState({errors: response.responseText});
@@ -105,10 +107,13 @@ class HomePage extends Component {
             <p>New user</p>
             <Link to="/signup"><img src="https://static.pexels.com/photos/220563/pexels-photo-220563.jpeg" alt="New user"/></Link>
           </div>
-          <div className="frame">
-            <p>Find me</p>
-            <Link to="/findme"><img src="https://static.pexels.com/photos/65642/grasshopper-viridissima-green-corn-leaf-65642.jpeg" alt="Show me on Map"/></Link>
-          </div>
+          {
+            appState.user &&
+            <div className="frame">
+              <p>Find me</p>
+              <Link to="/findme"><img src="https://static.pexels.com/photos/65642/grasshopper-viridissima-green-corn-leaf-65642.jpeg" alt="Show me on Map"/></Link>
+            </div>
+          }
 
         </div>
 

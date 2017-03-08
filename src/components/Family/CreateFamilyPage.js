@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CreateFamilyForm from './CreateFamilyForm.js'
 import $ from 'jquery';
 import appState from '../../GlobalData.js'
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 class CreateFamilyPage extends Component{
 
@@ -45,7 +45,7 @@ class CreateFamilyPage extends Component{
          appState.family = { id: response.id,
                            name: response.name
                          };
-         browserHistory.push('/home');
+         hashHistory.push('/home');
        },
        error: (response) => {
          this.setState({errors: response.responseText});

@@ -2,12 +2,24 @@ import React, { PropTypes, Component } from 'react';
 import GoogleMap from 'google-map-react';
 import UserOnMap from './UserOnMap.js';
 import {K_SIZE} from './UserOnMapStyles.js';
+import appState from '../../GlobalData.js'
 
 class SimpleMap extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user: appState.user,
+      syd: {
+        lat: 33.8688,
+        long: 151.2093
+      }
+    };
+  }
+
   static defaultProps = {
-    center: [59.938043, 30.337157],
+    center: [-33.8688, 151.2093],
     zoom: 9,
-    greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
+    greatPlaceCoords: {lat: -33.8688, lng: 151.2093}
   };
 
   static propTypes = {
@@ -27,10 +39,12 @@ class SimpleMap extends Component {
         zoom={this.props.zoom}
         hoverDistance={K_SIZE / 2}
       >
+        { appState.user &&
         <UserOnMap
-          lat={59.955413}
-          lng={30.337844}
+          lat={appState.user.lat}
+          lng={appState.user.long}
          />
+       }
       </GoogleMap>
       </div>
     );

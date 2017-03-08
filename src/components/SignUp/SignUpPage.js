@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SignUpForm from './SignUpForm.js'
 import $ from 'jquery';
 import appState from '../../GlobalData.js'
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import linkState from '../../Links.js'
 
 class SignUpPage extends Component{
@@ -77,7 +77,7 @@ class SignUpPage extends Component{
                            contact: userData.contact,
                            address: userData.address
                          };
-         browserHistory.push('/home');
+         hashHistory.push('/home');
        },
        error: (response) => {
          this.setState({errors: response.responseText});

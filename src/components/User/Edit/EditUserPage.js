@@ -3,7 +3,7 @@ import SignUpForm from '../../SignUp/SignUpForm.js'
 import $ from 'jquery';
 import appState from '../../../GlobalData.js'
 import linkState from '../../../Links.js'
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 class EditUserPage extends Component{
 
@@ -78,7 +78,7 @@ class EditUserPage extends Component{
                            contact: userData.contact,
                            address: userData.address
                          };
-         browserHistory.push('/home');
+         hashHistory.push('/home');
        },
        error: (response) => {
          this.setState({errors: response.responseText});
