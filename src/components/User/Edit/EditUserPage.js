@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SignUpForm from '../../SignUp/SignUpForm.js'
 import $ from 'jquery';
 import appState from '../../../GlobalData.js'
+import linkState from '../../../Links.js'
 import { browserHistory } from 'react-router';
 
 class EditUserPage extends Component{
@@ -49,9 +50,16 @@ class EditUserPage extends Component{
     const password_confirmation = (this.state.user.password_confirmation);
     const contact = (this.state.user.contact);
     const address = (this.state.user.address);
+    let serverUrl = '';
+    if (linkState.development.isActive){
+      serverUrl = linkState.development.newUser;
+    }
+    else {
+      serverUrl = linkState.production.newUser;
+    }
 
      $.ajax({
-       url: `http://localhost:5000/users/${this.state.user.id}`,
+       url: `${serverUrl}/${this.state.user.id}`,
        type: 'PUT',
        data: { user: {
                   name: name,
