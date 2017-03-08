@@ -3,6 +3,7 @@ import SignUpForm from './SignUpForm.js'
 import $ from 'jquery';
 import appState from '../../GlobalData.js'
 import { browserHistory } from 'react-router';
+import linkState from '../../Links.js'
 
 class SignUpPage extends Component{
 
@@ -48,9 +49,16 @@ class SignUpPage extends Component{
     const password_confirmation = (this.state.user.password_confirmation);
     const contact = (this.state.user.contact);
     const address = (this.state.user.address);
+    let serverUrl = '';
+    if (linkState.development.isActive){
+      serverUrl = linkState.development.newUser;
+    }
+    else {
+      serverUrl = linkState.production.newUser;
+    }
 
      $.ajax({
-       url: 'http://localhost:5000/users',
+       url: serverUrl,
        type: 'POST',
        data: { user: {
                   name: name,

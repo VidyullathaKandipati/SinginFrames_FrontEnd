@@ -5,6 +5,7 @@ import SignUpPage from './components/SignUp/SignUpPage.js';
 import ShowUserPage from './components/User/ShowUserPage.js';
 import CreateFamilyPage from './components/Family/CreateFamilyPage.js';
 import InviteFamilyPage from './components/Family/CreateFamilyPage.js';
+import SimpleMap from './components/Features/FindMyFamily.js'
 
 const routes = {
   // component: Navbar,
@@ -32,6 +33,10 @@ const routes = {
     {
       path: '/invitefamily',
       component: InviteFamilyPage
+    },
+    {
+      path: '/findme',
+      component: SimpleMap
     }
   ]
 };

@@ -4,6 +4,7 @@ import SignInForm from '../User/SignIn/SignInForm.js';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
 import appState from '../../GlobalData.js'
+import linkState from '../../Links.js'
 
 class HomePage extends Component {
   constructor(props, context){
@@ -45,9 +46,16 @@ class HomePage extends Component {
     // const password_confirmation = encodeURIComponent(this.state.user.password_confirmation);
     // const contact = encodeURIComponent(this.state.user.contact);
     // const address = encodeURIComponent(this.state.user.address);
+    let serverUrl = '';
+    if (linkState.development.isActive){
+      serverUrl = linkState.development.login;
+    }
+    else {
+      serverUrl = linkState.production.login;
+    }
 
      $.ajax({
-       url: 'http://localhost:5000/login',
+       url: serverUrl,
        type: 'POST',
        data: {
                   email: email,
@@ -99,7 +107,7 @@ class HomePage extends Component {
           </div>
           <div className="frame">
             <p>Find me</p>
-            <Link to="/"><img src="https://static.pexels.com/photos/65642/grasshopper-viridissima-green-corn-leaf-65642.jpeg" alt="Show me on Map"/></Link>
+            <Link to="/findme"><img src="https://static.pexels.com/photos/65642/grasshopper-viridissima-green-corn-leaf-65642.jpeg" alt="Show me on Map"/></Link>
           </div>
 
         </div>
