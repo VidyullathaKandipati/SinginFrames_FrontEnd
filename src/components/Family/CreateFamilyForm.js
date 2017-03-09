@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const CreateFamilyForm = ({
   onSubmit,
@@ -6,28 +8,27 @@ const CreateFamilyForm = ({
   errors,
   family
 }) => (
-  <div className="container">
-    <h2 className="login-header">New family</h2>
+  <div className="row">
 
-    <div className="col-md-3"></div>
+    <div className="col1"></div>
 
-      <div className="col-md-6">
+      <div className="col6 sign-up">
       <form action="/" onSubmit={onSubmit}>
+      <h2 className="login-header">New family</h2>
 
        {errors && (<div className="error-message button-center"> {errors} </div>)}
 
         <div className="form-group">
-          *<label>Name</label>
-          <input type="text" className="form-control textfield-border" placeholder="Your name" onChange={onChange}
-                 autoFocus={true} name="name" value={family.name} required={true}></input>
+          <TextField floatingLabelText="* Family Name" type="text" onChange={onChange} floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
+                 autoFocus={true} name="name" defaultvalue={family.name} required={true} fullWidth={true}/ >
         </div>
         <div className="form-group">
           { /*<label>Family picture</label>
           < f.cl_image_upload :avatar %> */ }
         </div>
-
+        <br /><br />
         <div className="button-center">
-          <button type="submit" className="btn btn-primary">Create new account</button>
+          <RaisedButton label="Create new family" type="submit" primary={true} />
           <br/><br/>
         </div>
       </form>

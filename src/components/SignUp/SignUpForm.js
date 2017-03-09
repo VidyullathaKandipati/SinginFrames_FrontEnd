@@ -21,32 +21,32 @@ const SignUpForm = ({
         {errors && (<div className="error-message button-center"> {errors} </div>)}
 
         <div className="form-group">
-          <TextField floatingLabelText="* Name" type="text" onChange={onChange}
+          <TextField floatingLabelText="* Name" type="text" onChange={onChange} floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                  autoFocus={true} name="name" defaultvalue={user.name} required={true} fullWidth={true} />
         </div>
         <br />
         <div className="form-group">
-          <TextField floatingLabelText="* Email" type="email" onChange={onChange}
+          <TextField floatingLabelText="* Email" type="email" onChange={onChange} floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                  required={true} name="email" defaultvalue={user.email} fullWidth={true}/>
         </div>
         <br />
         <div className="form-group">
-          <TextField floatingLabelText="* Password" type="password" onChange={onChange}
+          <TextField floatingLabelText="* Password" type="password" onChange={onChange} floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                  name="password" required={true} fullWidth={true}/>
         </div>
         <br />
         <div className="form-group">
-          <TextField floatingLabelText="* Confirm Password" type="password" onChange={onChange}
+          <TextField floatingLabelText="* Confirm Password" type="password" onChange={onChange} floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                name="password_confirmation" required={true} fullWidth={true}/>
         </div>
         <br />
         <div className="form-group">
-          <TextField floatingLabelText="* contact" type="text"
+          <TextField floatingLabelText="contact" type="text" floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                   onChange={onChange} name="contact" defaultValue={user.contact} fullWidth={true}/>
         </div>
         <br />
         <div className="form-group">
-          <TextField floatingLabelText="* address" floatingLabelFixed={true} type="text"
+          <TextField floatingLabelText="address" floatingLabelFixed={true} type="text" floatingLabelStyle={{'font-family': "'Kaushan Script', cursive"}}
                  onChange={onChange} name="address" defaultvalue={user.address} fullWidth={true}/>
         </div>
         <br />
@@ -56,7 +56,7 @@ const SignUpForm = ({
         </div>
 
         <div className="button-center">
-          <RaisedButton type="submit" primary={true}>Submit</RaisedButton>
+          <RaisedButton label="Submit" type="submit" primary={true} />
           <br/><br/>
           <p>Already have an account? <br /> Go the login link here <Link to={'/'}>Log in</Link></p>
         </div>
