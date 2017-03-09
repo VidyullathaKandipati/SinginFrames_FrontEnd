@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CreateFamilyForm from './CreateFamilyForm.js'
 import $ from 'jquery';
 import appState from '../../GlobalData.js'
+import linkState from '../../Links.js';
 import { hashHistory } from 'react-router';
 
 class CreateFamilyPage extends Component{
