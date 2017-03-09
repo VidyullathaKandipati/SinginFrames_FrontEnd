@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import SignInForm from '../User/SignIn/SignInForm.js';
 // import LogOutPage from '../User/LogOutPage.js';
-// import AfterLoginMenu from '../User/AfterLoginMenu.js';
 import $ from 'jquery';
 import { hashHistory } from 'react-router';
 import appState from '../../GlobalData.js'
 import linkState from '../../Links.js';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import home from '../../images/home.jpeg';
+import login from '../../images/login.jpg';
+import newuser from '../../images/new_user.jpeg';
+import invite from '../../images/invite_family.jpeg';
+import findmyfamily from '../../images/find_my_family.jpeg';
+import createfamily from '../../images/create_family.jpeg';
 
 class HomePage extends Component {
   constructor(props, context){
@@ -123,7 +128,7 @@ class HomePage extends Component {
           <div className="frame frame-flex">
             <Link to="/">
               <p>Home</p>
-              <img src="https://static.pexels.com/photos/164466/pexels-photo-164466.jpeg" alt="Home"/>
+              <img src={home} alt="Home"/>
             </Link>
           </div>
           <div className="frame frame-flex empty">
@@ -143,7 +148,7 @@ class HomePage extends Component {
               <div className="frame find-me frame-flex">
                 <Link to="/findme">
                   <p>Find me</p>
-                  <img src="https://static.pexels.com/photos/57449/portrait-child-hands-57449.jpeg" alt="Show me on Map"/>
+                  <img src={findmyfamily} alt="Show me on Map"/>
                 </Link>
               </div>
           }
@@ -153,7 +158,7 @@ class HomePage extends Component {
             <div className="frame frame-flex">
               <Link to="#" onClick={this.logIn.bind(this)}>
                 <p>Login</p>
-                <img src="https://static.pexels.com/photos/9746/people-mother-family-father.jpg" alt="Login"/>
+                <img src={login} alt="Login"/>
               </Link>
             </div>
           }
@@ -174,7 +179,7 @@ class HomePage extends Component {
             <div className="frame frame-flex">
               <Link to="/signup">
                 <p>New user</p>
-                <img src="https://static.pexels.com/photos/220563/pexels-photo-220563.jpeg" alt="New user"/>
+                <img src={newuser} alt="New user"/>
               </Link>
             </div>
           }
@@ -188,7 +193,7 @@ class HomePage extends Component {
             <div className="frame frame-flex">
               <Link to="/newfamily">
                 <p>Create family</p>
-                <img src="https://static.pexels.com/photos/46252/family-kids-happy-people-46252.jpeg" alt="Create a new family"/>
+                <img src={createfamily} alt="Create a new family"/>
               </Link>
             </div>
           }
@@ -206,7 +211,7 @@ class HomePage extends Component {
             <div className="frame frame-flex">
               <Link to="/invitefamily">
                 <p>Invite family</p>
-                <img src="https://static.pexels.com/photos/128299/pexels-photo-128299.jpeg" alt="Invite family"/>
+                <img src={invite} alt="Invite family"/>
               </Link>
             </div>
           }
