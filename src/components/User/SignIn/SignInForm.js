@@ -1,5 +1,28 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import { black, orange500, blue500, white } from 'material-ui/styles/colors';
+
+
+const styles = {
+  errorStyle: {
+    color: orange500
+  },
+  underlineStyle: {
+    borderColor: black
+  },
+  floatingLabelStyle: {
+    color: black
+  },
+  floatingLabelFocusStyle: {
+    color: black
+  },
+  RaisedButtonStyle: {
+    color: black
+  }
+};
+
 
 const SignInForm = ({
   onSubmit,
@@ -7,38 +30,39 @@ const SignInForm = ({
   errors,
   user
 }) => (
-  <div className="container">
-
-    <h2 className="login-header">Log in</h2>
+  <div className="row">
 
      {errors && (<div className="error-message button-center"> {errors} </div>)}
 
-    <div className="col-md-3"></div>
+    <div className="col3"></div>
 
-      <div className="col-md-6">
+      <div className="col3 sign-in">
+
       <form action="/" onSubmit={onSubmit}>
 
       {errors.summary && <p className="error-message">{errors.summary}</p>}
 
       <div className="form-group">
-        *<label>Email</label>
-        <input className="form-control" placeholder="Your email" onChange={onChange}
-               autoFocus={true} required={true} type="email" name="email"></input>
+        <TextField floatingLabelText="* Email" underlineFocusStyle={styles.underlineStyle}
+               onChange={onChange} autoFocus={true} required={true} type="email" name="email" className="my-input"
+               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
       </div>
+      <br />
       <div className="form-group">
-        *<label>Password</label>
-        <input type="password" className="form-control" placeholder="Your singingframes.com password"
-               onChange={onChange} required={true} name="password"></input>
+        <TextField floatingLabelText="* Password" underlineFocusStyle={styles.underlineStyle}
+               onChange={onChange} required={true} type="password" name="password"
+               floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
       </div>
+      <br />
       <div className="button-center">
-        <button type="submit" className="btn btn-primary">Login</button>
+        <RaisedButton type="submit" className="sign-in-button">Login</RaisedButton>
         <br/><br/>
         <p>Don't have an account? <Link to={"/signup"}>New User</Link></p>
       </div>
       </form>
     </div>
 
-    <div className="col-md-3"></div>
+    <div className="col3"></div>
   </div>
 );
 

@@ -14,7 +14,6 @@ const Navbar = ({ children }) => (
         <Link to="/signup"> Sign up |</Link>
         { appState.user && ( <Link to="/edituser"> Edit User profile |</Link>) }
         { !appState.family && (<Link to="/newfamily"> Create family | </Link> ) }
-        { (<Link to="/invitefamily"> Invite family |</Link>) }
         { appState.family && (<Link to="/invitefamily"> Invite family |</Link>) }
       </div>
 

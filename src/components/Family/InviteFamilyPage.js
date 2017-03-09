@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import CreateFamilyForm from './CreateFamilyForm.js'
+import InviteFamilyForm from './InviteFamilyForm.js'
 import $ from 'jquery';
-import appState from '../../../GlobalData.js'
+import appState from '../../GlobalData.js'
 import { hashHistory } from 'react-router';
+import linkState from '../../Links.js'
 
 class InviteFamilyPage extends Component{
 
@@ -14,8 +15,9 @@ class InviteFamilyPage extends Component{
       family: {
         id: appState.family.id,
         name: appState.family.name,
-        email: appState.user.email,
-      }
+        email: ''
+      },
+      users: []
     };
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
@@ -31,30 +33,26 @@ class InviteFamilyPage extends Component{
 
   processForm(event) {
     event.preventDefault();
-    console.log('id: ', this.state.user.id);
-    console.log('name: ', this.state.user.name);
-    console.log('email: ',this.state.user.email);
+
+    console.log('id: ', this.state.family.id);
+    console.log('email: ',this.state.family.email);
 
     // create a string for an HTTP body message
-    const email = (this.state.user.email);
+    const id = (this.state.family.id);
+    const email = (this.state.family.email);
+
+    let serverUrl = linkState.production.newinvite;
 
      $.ajax({
-       url: `http://localhost:5000/invites/${this.state.user.id}`,
+       url: serverUrl,
        type: 'POST',
-       data: { invite: {
-                  id: id,
+       data: {invite: {
+                  family_id: id,
                   email: email
-              } },
+               }},
        success: (response) => {
          console.log('it worked!', response);
-         let userData = response.data.attributes
-         appState.user = { id: response.data.id,
-                           name: userData.name,
-                           email: userData.email,
-                           contact: userData.contact,
-                           address: userData.address
-                         };
-         hashHistory.push('/home');
+         hashHistory.push('/');
        },
        error: (response) => {
          this.setState({errors: response.responseText});
@@ -66,11 +64,11 @@ class InviteFamilyPage extends Component{
 
   render() {
     return (
-      <SignUpForm
+      <InviteFamilyForm
         onSubmit={this.processForm}
         onChange={this.changeUser}
         errors={this.state.errors}
-        user={this.state.user}
+        family={this.state.family}
       />
     );
   }

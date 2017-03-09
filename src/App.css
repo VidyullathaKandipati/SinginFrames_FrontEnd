@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Roboto:300,400,500');
 
 *{
   box-sizing: border-box;
@@ -6,7 +6,12 @@
 .App {
   text-align: center;
 }
-
+#root{
+  font-family: 'Kaushan Script', cursive;
+}
+.logo h2{
+  margin-left: 13em;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -77,6 +82,7 @@
  /*background: url("https://static.pexels.com/photos/176059/pexels-photo-176059.jpeg") no-repeat center;*/
  /*background: url("https://static.pexels.com/photos/220694/pexels-photo-220694.jpeg") no-repeat center;*/
  /*background: url("https://static.pexels.com/photos/217316/pexels-photo-217316.jpeg") no-repeat center;*/
+ /* The below one */
  background: url("https://static.pexels.com/photos/57851/pexels-photo-57851.jpeg") no-repeat center;
  /*background: url("https://static.pexels.com/photos/296649/pexels-photo-296649.jpeg") no-repeat center;*/
  /*background: url("https://static.pexels.com/photos/46252/family-kids-happy-people-46252.jpeg") no-repeat center;*/
@@ -133,6 +139,7 @@
   height: 10em;
   margin-bottom: 2em;
   margin-left: 5em;
+  margin-top: 0;
   border: 2px solid black;
   align-self: center;
   position: relative;
@@ -166,10 +173,15 @@
 }
 .frame:hover {
   /*filter: blur(0px);*/
-  transform:scale(1.25);
+  transform:scale(1.2);
 }
 .frame img:hover{
-  filter: hue-rotate(90deg);
+  /*filter: hue-rotate(90deg);*/
+  filter: none;
+}
+.find-me img:hover{
+  filter: sepia(2);
+
 }
 .logo{
   position:relative;
@@ -183,14 +195,42 @@
 }*/
 .frame:has(img) { background: none; }
 
-.col-md-6 form{
+.frame-small{
+  width: 6em;
+  height: 6em;
+}
+
+.row{
+  display: flex;
+  flexWrap: 'wrap';
+  justifyContent: 'space-around';
+}
+.col1, .col3, .col6{
+  flex-direction: row;
+  overflowY: auto;
+}
+.col3{
+  width: 33%;
+}
+.col1{
+  width: 20%;
+}
+.col6{
+  width: 60%;
+}
+.sign-in form{
   position: absolute;
   z-index: 50;
-  margin: 8em;
+  margin: 6rem;
+  margin-top: 15em;
+  /*margin-left: 10em;*/
 }
 .user-on-map{
   width: 4em;
   height: 4em;
+}
+.sign-up form{
+  margin: 5rem;
 }
 
 .user-on-map img{
@@ -201,4 +241,47 @@
 }
 .user-on-map img:hover{
   transform: scale(1.5);
+}
+
+.sign-in-button:hover{
+  background-color: black;
+}
+
+.right-side1{
+  border: none;
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  height: 5em;
+}
+
+.right-side1 a p{
+  line-height: 5em;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: black;
+}
+.right-side1 a{
+  text-decoration: none;
+}
+
+.right-side1 p:hover{
+  cursor: pointer;
+  text-decoration: line-through;
+}
+
+.album{
+  display: flex;
+}
+.frame-flex{
+  flex-direction: column;
+  margin-right: 0
+}
+.empty{
+  border:none;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: line-through;
 }

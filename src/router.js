@@ -1,14 +1,14 @@
-// import Navbar from './components/Navbar/Navbar.js';
+import Navbar from './components/Navbar/Navbar.js';
 import HomePage from './components/HomePage/HomePage.js';
 import EditUserPage from './components/User/Edit/EditUserPage.js';
 import SignUpPage from './components/SignUp/SignUpPage.js';
 import ShowUserPage from './components/User/ShowUserPage.js';
 import CreateFamilyPage from './components/Family/CreateFamilyPage.js';
-import InviteFamilyPage from './components/Family/CreateFamilyPage.js';
+import InviteFamilyPage from './components/Family/InviteFamilyPage.js';
 import SimpleMap from './components/Features/FindMyFamily.js'
 
 const routes = {
-  // component: Navbar,
+
   indexRoute: {
     path: '/',
     component: HomePage

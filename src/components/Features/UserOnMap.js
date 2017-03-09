@@ -13,7 +13,7 @@ render() {
 
   return (
        <div className="user-on-map" >
-          <img src='https://static.pexels.com/photos/27476/pexels-photo-27476.jpg' alt="User on map"/>
+          <img src='https://static.pexels.com/photos/103123/pexels-photo-103123.jpeg' alt="User on map"/>
        </div>
     );
   }

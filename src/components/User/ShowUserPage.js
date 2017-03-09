@@ -8,7 +8,7 @@ class ShowUserPage extends Component {
       <div className="container">
        {appState.user && (<div className="navbar-right greeting">
             Welcome {appState.user.name}
-            { appState.user && ( <Link to="/edituser"> Edit User profile |</Link>) }
+            ( <Link to="/edituser"> Edit User profile |</Link>) 
           </div>)}
       </div>
     );

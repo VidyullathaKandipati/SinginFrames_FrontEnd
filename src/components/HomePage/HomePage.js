@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import SignInForm from '../User/SignIn/SignInForm.js';
+// import LogOutPage from '../User/LogOutPage.js';
+// import AfterLoginMenu from '../User/AfterLoginMenu.js';
 import $ from 'jquery';
 import { hashHistory } from 'react-router';
 import appState from '../../GlobalData.js'
-import linkState from '../../Links.js'
+import linkState from '../../Links.js';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 class HomePage extends Component {
   constructor(props, context){
@@ -15,11 +19,14 @@ class HomePage extends Component {
       user: {
         email: '',
         password: ''
-      }
+      },
+      open: false
     };
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
   }
+
+  handleToggle = () => this.setState({open: !this.state.open});
 
   logIn(){
     console.log("Setting user loging to true.");
@@ -71,8 +78,16 @@ class HomePage extends Component {
                           address: userData.address,
                           lat: userData.latitude,
                           long: userData.longitude
-                        };
+        };
+        let familyData = userData.families[0];
+        appState.family = {
+                            id: familyData.id,
+                            name: familyData.name
+        };
+        console.log(appState.user);
         hashHistory.push('/');
+        this.setState({signIn: false});
+        this.handleToggle();
       },
       error: (response) => {
         this.setState({errors: response.responseText});
@@ -90,28 +105,118 @@ class HomePage extends Component {
         errors={this.state.errors}
         user={this.state.user}
         /> }
+
         <div className="container welcome-msg button-center">
           <div className="logo">
-            <h2>Welcome to Singing Frames</h2>
-            <h3>Connecting families .... </h3>
+            <div className="row">
+              <div className="col1"></div>
+              <div className="col6">
+                <h1>Welcome to Singing Frames</h1>
+                <h2>Connecting families .... </h2>
+              </div>
+
+            </div>
           </div>
-          <div className="frame">
-            <p>Home</p>
-            <Link to="/"><img src="https://static.pexels.com/photos/164466/pexels-photo-164466.jpeg" alt="Home"/></Link>
+  { /*
+          <div className="album">
+
+          <div className="frame frame-flex">
+            <Link to="/">
+              <p>Home</p>
+              <img src="https://static.pexels.com/photos/164466/pexels-photo-164466.jpeg" alt="Home"/>
+            </Link>
           </div>
-          <div className="frame">
-            <p>Login</p>
-            <Link to="#" onClick={this.logIn.bind(this)}><img src="https://static.pexels.com/photos/9746/people-mother-family-father.jpg" alt="Login"/></Link>
+          <div className="frame frame-flex empty">
+
           </div>
-          <div className="frame">
-            <p>New user</p>
-            <Link to="/signup"><img src="https://static.pexels.com/photos/220563/pexels-photo-220563.jpeg" alt="New user"/></Link>
           </div>
+          */
+        }
+
+          <div className="album">
+          {
+            !appState.user &&
+            <div className=" frame frame-flex empty"></div>
+          }
           {
             appState.user &&
-            <div className="frame">
-              <p>Find me</p>
-              <Link to="/findme"><img src="https://static.pexels.com/photos/65642/grasshopper-viridissima-green-corn-leaf-65642.jpeg" alt="Show me on Map"/></Link>
+              <div className="frame find-me frame-flex">
+                <Link to="/findme">
+                  <p>Find me</p>
+                  <img src="https://static.pexels.com/photos/57449/portrait-child-hands-57449.jpeg" alt="Show me on Map"/>
+                </Link>
+              </div>
+          }
+
+          {
+            !appState.user &&
+            <div className="frame frame-flex">
+              <Link to="#" onClick={this.logIn.bind(this)}>
+                <p>Login</p>
+                <img src="https://static.pexels.com/photos/9746/people-mother-family-father.jpg" alt="Login"/>
+              </Link>
+            </div>
+          }
+          {
+            !appState.user &&
+            <div className=" frame frame-flex empty"></div>
+          }
+
+          </div>
+
+          <div className="album">
+          {
+            appState.user &&
+            <div className=" frame frame-flex empty"></div>
+          }
+          {
+            !appState.user &&
+            <div className="frame frame-flex">
+              <Link to="/signup">
+                <p>New user</p>
+                <img src="https://static.pexels.com/photos/220563/pexels-photo-220563.jpeg" alt="New user"/>
+              </Link>
+            </div>
+          }
+          {
+            !appState.user &&
+            <div className=" frame frame-flex empty"></div>
+          }
+          {
+            appState.user &&
+
+            <div className="frame frame-flex">
+              <Link to="/newfamily">
+                <p>Create family</p>
+                <img src="https://static.pexels.com/photos/46252/family-kids-happy-people-46252.jpeg" alt="Create a new family"/>
+              </Link>
+            </div>
+          }
+
+          </div>
+
+          <div className="album">
+          {
+            !appState.user &&
+            <div className=" frame frame-flex empty"></div>
+          }
+          {
+            appState.user &&
+
+            <div className="frame frame-flex">
+              <Link to="/invitefamily">
+                <p>Invite family</p>
+                <img src="https://static.pexels.com/photos/128299/pexels-photo-128299.jpeg" alt="Invite family"/>
+              </Link>
+            </div>
+          }
+
+          </div>
+
+          {
+            appState.user &&
+            <div className="frame right-side1">
+              <a href="#/findme"> <p> Log out </p> </a>
             </div>
           }
 
