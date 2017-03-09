@@ -34,8 +34,16 @@ class CreateFamilyPage extends Component{
     // create a string for an HTTP body message
     const name = (this.state.family.name);
 
+    let serverUrl = '';
+    if (linkState.development.isActive){
+      serverUrl = linkState.development.newUser;
+    }
+    else {
+      serverUrl = linkState.production.newUser;
+    }
+
      $.ajax({
-       url: 'http://localhost:5000/families',
+       url: serverUrl,
        type: 'POST',
        data: { family: {
                   name: name
