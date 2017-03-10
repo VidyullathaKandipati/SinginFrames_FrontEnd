@@ -146,9 +146,9 @@ class HomePage extends Component {
           {
             appState.user &&
               <div className="frame find-me frame-flex">
-                <Link to="/findme">
-                  <p>Find me</p>
-                  <img src={findmyfamily} alt="Show me on Map"/>
+                <Link to="/findmyfamily">
+                  <p>Find my family</p>
+                  <img src={findmyfamily} alt="Show my family on map"/>
                 </Link>
               </div>
           }

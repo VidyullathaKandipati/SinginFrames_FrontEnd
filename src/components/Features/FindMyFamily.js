@@ -31,8 +31,8 @@ class SimpleMap extends Component {
   };
 
   static propTypes = {
-    // center: {lat: 59.95, lng: 30.33},
-    // zoom: 11
+    center: {lat: 59.95, lng: 30.33},
+    zoom: 11,
     center: PropTypes.array,
     zoom: PropTypes.number,
     greatPlaceCoords: PropTypes.any
@@ -43,8 +43,7 @@ class SimpleMap extends Component {
       <div style={{width: '100vw', height: '100vh'}}>
       <GoogleMap
         bootstrapURLKeys={{key: 'AIzaSyCrdNG7LEAcx7NK1JxijJtyX2z4eoUqNlg'}}
-        center={this.props.center}
-        zoom={this.props.zoom}
+
         hoverDistance={K_SIZE / 2}
       >
         { appState.user &&
@@ -53,13 +52,7 @@ class SimpleMap extends Component {
           lng={appState.user.long}
          />
         }
-        { !appState.user &&
-        <UserOnMap
-          lat={this.state.syd.lat}
-          lng={this.state.syd.long}
-         />
-        }
-          appState.user &&
+        
          <UserOnMap
            lat={this.state.user2.lat}
            lng={this.state.user2.long}

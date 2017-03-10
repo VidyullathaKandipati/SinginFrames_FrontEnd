@@ -39,7 +39,7 @@ const routes = {
       component: InviteFamilyPage
     },
     {
-      path: '/findme',
+      path: '/findmyfamily',
       component: SimpleMap
     }
   ]
