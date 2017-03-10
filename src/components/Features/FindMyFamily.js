@@ -52,16 +52,23 @@ class SimpleMap extends Component {
           lat={appState.user.lat}
           lng={appState.user.long}
          />
-         { appState.user &&
+        }
+        { !appState.user &&
+        <UserOnMap
+          lat={this.state.syd.lat}
+          lng={this.state.syd.long}
+         />
+        }
+          appState.user &&
          <UserOnMap
-           lat={user2.lat}
-           lng={user2.long}
+           lat={this.state.user2.lat}
+           lng={this.state.user2.long}
           />
           <UserOnMap
-            lat={user3.lat}
-            lng={user3.long}
+            lat={this.state.user3.lat}
+            lng={this.state.user3.long}
            />
-       }
+
       </GoogleMap>
       </div>
     );
