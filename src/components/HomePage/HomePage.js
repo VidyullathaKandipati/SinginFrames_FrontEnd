@@ -59,11 +59,11 @@ class HomePage extends Component {
     // const contact = encodeURIComponent(this.state.user.contact);
     // const address = encodeURIComponent(this.state.user.address);
     let serverUrl = '';
-    if (linkState.development.isActive){
-      serverUrl = linkState.development.login;
+    if (linkState.production.isActive){
+      serverUrl = linkState.production.login;
     }
     else {
-      serverUrl = linkState.production.login;
+      serverUrl = linkState.development.login;
     }
 
      $.ajax({
