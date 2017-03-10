@@ -2,7 +2,26 @@ import React, { PropTypes, Component } from 'react';
 import GoogleMap from 'google-map-react';
 import UserOnMap from './UserOnMap.js';
 import {K_SIZE} from './UserOnMapStyles.js';
-import appState from '../../GlobalData.js'
+import appState from '../../GlobalData.js';
+
+function createMapOptions(maps) {
+  // next props are exposed at maps
+  // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
+  // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
+  // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
+  // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
+  // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
+  return {
+    zoomControlOptions: {
+      position: maps.ControlPosition.RIGHT_CENTER,
+      style: maps.ZoomControlStyle.SMALL
+    },
+    mapTypeControlOptions: {
+      position: maps.ControlPosition.TOP_RIGHT
+    },
+    mapTypeControl: true
+  };
+}
 
 class SimpleMap extends Component {
   constructor(props){
@@ -31,10 +50,10 @@ class SimpleMap extends Component {
   };
 
   static propTypes = {
-    center: {lat: 59.95, lng: 30.33},
-    zoom: 11,
-    center: PropTypes.array,
+    // center: {lat: 2.8, long: -187.3},
     zoom: PropTypes.number,
+    center: PropTypes.array,
+    // zoom: PropTypes.number,
     greatPlaceCoords: PropTypes.any
   };
 
@@ -43,7 +62,9 @@ class SimpleMap extends Component {
       <div style={{width: '100vw', height: '100vh'}}>
       <GoogleMap
         bootstrapURLKeys={{key: 'AIzaSyCrdNG7LEAcx7NK1JxijJtyX2z4eoUqNlg'}}
-
+        center={this.props.center}
+        zoom={1}
+        options={createMapOptions}
         hoverDistance={K_SIZE / 2}
       >
         { appState.user &&
@@ -52,7 +73,6 @@ class SimpleMap extends Component {
           lng={appState.user.long}
          />
         }
-        
          <UserOnMap
            lat={this.state.user2.lat}
            lng={this.state.user2.long}
