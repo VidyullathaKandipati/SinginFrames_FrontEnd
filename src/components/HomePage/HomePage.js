@@ -114,11 +114,11 @@ class HomePage extends Component {
         <div className="container welcome-msg button-center">
           <div className="logo">
             <div className="row">
-              <div className="col1"></div>
-              <div className="col6">
+            <div className="col1"></div>
+               <div className="col6">
                 <h1>Welcome to Singing Frames</h1>
                 <h2>Connecting families .... </h2>
-              </div>
+               </div>
 
             </div>
           </div>

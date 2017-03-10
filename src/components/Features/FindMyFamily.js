@@ -9,6 +9,14 @@ class SimpleMap extends Component {
     super(props);
     this.state = {
       user: appState.user,
+      user2: {
+        lat: 12.972442,
+        long: 77.580643
+      },
+      user3: {
+        lat: 17.004393,
+        long: 81.783325
+      },
       syd: {
         lat: 33.8688,
         long: 151.2093
@@ -44,6 +52,15 @@ class SimpleMap extends Component {
           lat={appState.user.lat}
           lng={appState.user.long}
          />
+         { appState.user &&
+         <UserOnMap
+           lat={user2.lat}
+           lng={user2.long}
+          />
+          <UserOnMap
+            lat={user3.lat}
+            lng={user3.long}
+           />
        }
       </GoogleMap>
       </div>
